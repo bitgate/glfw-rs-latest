@@ -262,6 +262,7 @@ pub const CENTER_CURSOR: c_int = 0x00020009;
 pub const TRANSPARENT_FRAMEBUFFER: c_int = 0x0002000A;
 pub const HOVERED: c_int = 0x0002000B;
 pub const FOCUS_ON_SHOW: c_int = 0x0002000C;
+pub const GLFW_MOUSE_PASSTHRU: c_int = 0x0002000D;
 
 pub const RED_BITS: c_int = 0x00021001;
 pub const GREEN_BITS: c_int = 0x00021002;
@@ -685,11 +686,17 @@ extern "C" {
     #[cfg(target_os = "macos")]
     pub fn glfwGetNSGLContext(window: *mut GLFWwindow) -> *mut c_void;
 
-    #[cfg(all(any(target_os = "linux", target_os = "freebsd"), not(feature = "wayland")))]
+    #[cfg(all(
+        any(target_os = "linux", target_os = "freebsd"),
+        not(feature = "wayland")
+    ))]
     pub fn glfwGetX11Window(window: *mut GLFWwindow) -> *mut c_void;
-    #[cfg(all(any(target_os = "linux", target_os = "freebsd"), not(feature = "wayland")))]
+    #[cfg(all(
+        any(target_os = "linux", target_os = "freebsd"),
+        not(feature = "wayland")
+    ))]
     pub fn glfwGetX11Display() -> *mut c_void;
-    
+
     #[cfg(any(target_os = "linux", target_os = "freebsd"))]
     pub fn glfwGetGLXContext(window: *mut GLFWwindow) -> *mut c_void;
 
