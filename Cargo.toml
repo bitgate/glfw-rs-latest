@@ -22,7 +22,8 @@ winapi = { version = "0.3", features = ["libloaderapi"] }
 
 [dependencies.glfw-sys]
 optional = true
-version = "4.0.0"
+#version = "4.0.0"
+git = "https://github.com/bitgate/glfw-sys-latest"
 
 [dependencies.image]
 optional = true
